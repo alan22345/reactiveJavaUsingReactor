@@ -6,7 +6,8 @@ import java.util.List;
 
 public class namesFlux {
 
-    private static Flux<String> namesFlux(){
+    public static Flux<String> namesFlux(){
+        //returns events from Flux with .log()
         return Flux.fromIterable(List.of("a","b","c"));
     }
 

@@ -3,7 +3,7 @@ package com.learnreactiveprogramming.service.mono;
 import reactor.core.publisher.Mono;
 
 public class nameMono {
-    private static Mono<String> nameMono(){
+    public static Mono<String> nameMono(){
         return Mono.just("Name");
     }
 
