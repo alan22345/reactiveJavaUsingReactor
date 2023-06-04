@@ -46,7 +46,7 @@ public class namesFluxTest {
 
     @Test
     void fluxTransform() {
-        Flux<String> letters = namesFlux.fluxFlatMap();
+        Flux<String> letters = namesFlux.fluxTransform();
         StepVerifier.create(letters)
                 .expectNext("w","o","r","d","1","2","3","w","o","r","d","3","4").verifyComplete();
     }

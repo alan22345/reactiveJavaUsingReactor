@@ -1,5 +1,6 @@
 package com.learnreactiveprogramming.service.mono;
 
+import lombok.var;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
@@ -29,4 +30,20 @@ public class nameMono {
                 .map(String::toUpperCase)
                 .flatMapMany(this::splitString)//returns FLUX instead of MONO
                 .log();
-    }}
+    }
+
+    public Mono<String> emptyMono(){
+        return Mono.just("looong")
+                .filter(s -> s.length() < 2)
+                .defaultIfEmpty("default");
+    }
+
+    public Mono<String> switchIfEmptyMono(){
+
+        Mono<String> defaultPub = Mono.just("switchIfEmpty");
+
+        return Mono.just("just")
+                .filter(s -> s.length() < 1)
+                .switchIfEmpty(defaultPub);
+    }
+}
